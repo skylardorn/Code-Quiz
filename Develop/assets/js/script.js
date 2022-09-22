@@ -1,4 +1,4 @@
-let  $timeEl = document.querySelector(".time");
+let  $timeEl = document.getElementById("btn");
 let  $mainEl = document.getElementById("main");
 let secondsLeft = 0;
 
@@ -9,7 +9,7 @@ let secondsLeft = 0;
         timeLeft.html(secondsLeft);
     }
 
-    $('').addEventListener('click', timer);
+    $('btn').addEventListener('click', timer);
 
 
 // they can either click yes, challenge me. or no I just cant right now. so two button centered buttons waitin to be clicked
