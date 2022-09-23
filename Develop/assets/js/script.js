@@ -1,15 +1,29 @@
-let  $timeEl = document.getElementById("btn");
-let  $mainEl = document.getElementById("main");
-let secondsLeft = 0;
+const $startBtn = document.getElementById("start-btn");
+const questions = [
+    {
+       question: "What do you use (bracket wise) to create an array?",
+       options: ["sure", "maybe", "okay", "[]"],
+       answer: "[]",
+    },
+    {
+        question: "What HTML element do you use for the top of a document?",
+        options: ["dairy aisle", "microsoft", "<chill></chill>", "<head></head>"],
+        answer: "[]",
+    }
+    {
+        question: "Do you use a comma inside of an object?",
+        option: ["dairy aisle", "microsoft", "yes", "<head></head>"],
+        answer: "yes",
+    }
+];
+
+$startBtn.setAttribute("onclick", start())
+function start() {
+    
+}
 
 // when i go to the website im prompted with a popup "Do you think you have what it takes to defeat me?" says the code quiz
 
-    function timer () {
-        let timeLeft = select('time');
-        timeLeft.html(secondsLeft);
-    }
-
-    $('btn').addEventListener('click', timer);
 
 
 // they can either click yes, challenge me. or no I just cant right now. so two button centered buttons waitin to be clicked
