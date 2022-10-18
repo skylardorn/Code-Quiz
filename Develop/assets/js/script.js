@@ -9,7 +9,7 @@ const questions = [
         question: "What HTML element do you use for the top of a document?",
         options: ["dairy aisle", "microsoft", "<chill></chill>", "<head></head>"],
         answer: "[]",
-    }
+    },
     {
         question: "Do you use a comma inside of an object?",
         option: ["dairy aisle", "microsoft", "yes", "<head></head>"],
@@ -17,18 +17,75 @@ const questions = [
     }
 ];
 
-$startBtn.setAttribute("onclick", start())
-function start() {
-    
+window.onclick = color;
+
+function color() {
+    document.getElementsByTagName("body")[0].style.backgroundColor = green;
 }
 
-// when i go to the website im prompted with a popup "Do you think you have what it takes to defeat me?" says the code quiz
+
+var mins = 1;
+var secs = mins * 60;
+console.log(mins, secs)
+
+function countdown() {
+    setTimeout(decrement(), 60)
+}
+
+function decrement() {
+    if (document.getElementById) {
+        minutes = document.getElementById('minutes')
+        seconds = document.getElementById('seconds');
+
+        if (seconds > 59) {
+            seconds.value = secs;
+        } else {
+            minutes.value = getminutes();
+            seconds.value = getseconds();
+        }
+
+        if (mins < 0) {
+            alert('Times up');
+            minutes.value = 0;
+            seconds.value = 0;
+
+        }
+
+        else {
+            secs--;
+            setTimeout(decrement(), 1000);
+        }
+
+    }
+}
+
+function getminutes() {
+    mins = Math.floor(secs / 60);
+    return mins;
+}
+
+function getseconds() {
+    return secs - Math.round(mins * 60)
+}
 
 
 
-// they can either click yes, challenge me. or no I just cant right now. so two button centered buttons waitin to be clicked
-// up in the nav header bar we have the view highscores page an we have the timer. which will move to the center of the screen once the game has been started.
-// when highscores is clicked than 
-// 10 q's 
+$startBtn.addEventListener("onclick", countdown(questions));
 
-// gonna have the submit button as well as the 
+
+
+
+// let timeoutID;
+
+// function setOutput(outputContent) {
+//   $startBtn.textContent = outputContent;
+// }
+
+// function delayedMessage() {
+//   setOutput('');
+//   timeoutID = setTimeout(setOutput, 6*1000, 'Times up.');
+// }
+
+// function clearMessage() {
+//   clearTimeout(timeoutID);
+// }
