@@ -1,5 +1,6 @@
 const $startBtn = document.getElementById("start-btn");
-const questions = [
+const timeDiv = document.getElementById("time-div");
+let questions = [
     {
        question: "What do you use (bracket wise) to create an array?",
        options: ["sure", "maybe", "okay", "[]"],
@@ -8,7 +9,7 @@ const questions = [
     {
         question: "What HTML element do you use for the top of a document?",
         options: ["dairy aisle", "microsoft", "<chill></chill>", "<head></head>"],
-        answer: "[]",
+        answer: "<head></head>",
     },
     {
         question: "Do you use a comma inside of an object?",
@@ -16,61 +17,28 @@ const questions = [
         answer: "yes",
     }
 ];
+let questionsNEW = questions.split('');
 
-window.onclick = color;
+function countDown() {
+    let timeLeft = 60;
 
-function color() {
-    document.getElementsByTagName("body")[0].style.backgroundColor = green;
-}
-
-
-var mins = 1;
-var secs = mins * 60;
-console.log(mins, secs)
-
-function countdown() {
-    setTimeout(decrement(), 60)
-}
-
-function decrement() {
-    if (document.getElementById) {
-        minutes = document.getElementById('minutes')
-        seconds = document.getElementById('seconds');
-
-        if (seconds > 59) {
-            seconds.value = secs;
+    let timeInterval = setInterval(function () {
+        if (timeLeft === 0) {
+            alert('Game has ended. Would you like to play again?')
         } else {
-            minutes.value = getminutes();
-            seconds.value = getseconds();
-        }
+            // Once `timeLeft` gets to 0, set `timerEl` to an empty string
+            timerEl.textContent = '';
+            // Use `clearInterval()` to stop the timer
+            clearInterval(timeInterval);
+            // Call the `displayMessage()` function
+            displayMessage();
+          }
+        }, 1000);
+    };
 
-        if (mins < 0) {
-            alert('Times up');
-            minutes.value = 0;
-            seconds.value = 0;
-
-        }
-
-        else {
-            secs--;
-            setTimeout(decrement(), 1000);
-        }
-
-    }
-}
-
-function getminutes() {
-    mins = Math.floor(secs / 60);
-    return mins;
-}
-
-function getseconds() {
-    return secs - Math.round(mins * 60)
-}
+// building timer
 
 
-
-$startBtn.addEventListener("onclick", countdown(questions));
 
 
 
